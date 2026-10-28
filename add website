@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kaushal Tours and Travels</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f5f7fb;color:#172033}
+header{background:#102448;color:white;padding:25px 16px;text-align:center}
+header h1{margin:0;font-size:27px}
+nav{background:#193967;padding:14px;text-align:center}
+nav a{color:white;text-decoration:none;margin:0 10px}
+main{max-width:850px;margin:auto;padding:20px}
+.hero,.card{background:white;padding:22px;border-radius:14px;margin:16px 0;box-shadow:0 3px 14px #00000010}
+.hero{text-align:center}
+h2{color:#193967}
+.cars{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.price{background:#edf4ff;padding:15px;border-radius:10px}
+input,select{width:100%;padding:12px;margin:8px 0;border:1px solid #ccd3df;border-radius:8px;font-size:16px}
+button,.book{display:inline-block;background:#16834a;color:white;padding:13px 18px;border:0;border-radius:8px;text-decoration:none;font-size:16px;cursor:pointer}
+footer{text-align:center;padding:22px;background:#102448;color:white}
+.small{color:#5d6677;font-size:14px}
+@media(max-width:500px){.cars{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+<h1>Kaushal Tours and Travels</h1>
+<p>Your Journey, Our Responsibility</p>
+</header>
+<nav>
+<a href="#cars">Our Cars</a>
+<a href="#rates">Rates</a>
+<a href="#booking">Book Now</a>
+</nav>
+<main>
+<section class="hero">
+<h2>Safe & Comfortable Travel</h2>
+<p>Local, outstation and round-trip taxi booking.</p>
+<a class="book" href="#booking">Book Your Taxi</a>
+</section>
+
+<section class="card" id="cars">
+<h2>Our Available Cars</h2>
+<div class="cars">
+<div class="price"><h3>Hyundai Aura</h3><p>AC & Non-AC available</p></div>
+<div class="price"><h3>Maruti Suzuki Dzire</h3><p>AC & Non-AC available</p></div>
+</div>
+</section>
+
+<section class="card" id="rates">
+<h2>Our Rates</h2>
+<div class="cars">
+<div class="price"><h3>AC Taxi</h3><p>₹28 per km</p></div>
+<div class="price"><h3>Non-AC Taxi</h3><p>₹25 per km</p></div>
+</div>
+<p class="small">Toll tax extra. Final fare depends on distance, trip type and applicable charges. Minimum kilometre and driver allowance, if any, will be confirmed before booking.</p>
+</section>
+
+<section class="card" id="booking">
+<h2>Book on WhatsApp</h2>
+<form id="bookingForm">
+<label>Your Name</label>
+<input id="name" required placeholder="Enter your name">
+<label>Pickup Location</label>
+<input id="pickup" required placeholder="Where should we pick you up?">
+<label>Drop Location</label>
+<input id="drop" required placeholder="Where do you want to go?">
+<label>Travel Date</label>
+<input id="date" type="date" required>
+<label>Car</label>
+<select id="car">
+<option>Hyundai Aura</option>
+<option>Maruti Suzuki Dzire</option>
+</select>
+<label>AC Type</label>
+<select id="ac">
+<option value="AC - ₹28/km">AC - ₹28/km</option>
+<option value="Non-AC - ₹25/km">Non-AC - ₹25/km</option>
+</select>
+<label>Trip Type</label>
+<select id="trip">
+<option>One Way</option>
+<option>Round Trip</option>
+</select>
+<button type="submit">Send Booking on WhatsApp</button>
+</form>
+<p class="small">Toll tax extra. Booking is confirmed only after details are agreed with the operator.</p>
+</section>
+</main>
+<footer>
+<p>Kaushal Tours and Travels</p>
+<p>Contact: +91 8976643386</p>
+</footer>
+<script>
+document.getElementById('bookingForm').addEventListener('submit',function(e){
+e.preventDefault();
+const v=id=>document.getElementById(id).value;
+const msg=`Taxi Booking Request - Kaushal Tours and Travels
+Name: ${v('name')}
+Pickup: ${v('pickup')}
+Drop: ${v('drop')}
+Date: ${v('date')}
+Car: ${v('car')}
+AC Type: ${v('ac')}
+Trip: ${v('trip')}
+Toll tax extra. Please confirm final fare.`;
+window.open('https://wa.me/918976643386?text='+encodeURIComponent(msg),'_blank');
+});
+</script>
+</body>
+</html>
